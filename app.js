@@ -2,7 +2,7 @@
 /**
  * Module dependencies.
  */
-//author:thangma
+//author:thangskyline
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
