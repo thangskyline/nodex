@@ -4,6 +4,7 @@
  */
 //author:thangma
 var iTempFromMaster = 0;
+var iTempFromMaster1 = 0;
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
