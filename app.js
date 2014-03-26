@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 // author:thangskyline
+// author:thangma
 var express = require('express'), routes = require('./routes'), user = require('./routes/user'), http = require('http'), path = require('path');
 
 var app = express();
