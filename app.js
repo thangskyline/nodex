@@ -19,7 +19,8 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'admin1')));
 app.use(express.static(path.join(__dirname, 'admin2')));
-var tempVar = path.join(__dirname, 'admin');
+app.use(express.static(path.join(__dirname, 'public1')));
+
 // development only
 if ('development' === app.get('env')) {
 	app.use(express.errorHandler());
@@ -28,7 +29,7 @@ if ('development' === app.get('env')) {
 // app.get('/', routes.index);
 app.get('/', function(req, res) {
 
-	var filePath = __dirname + '/admin/index.html';
+	var filePath = __dirname + '/public1/index.html';
 
 	if (path.existsSync(filePath)) {
 		res.sendfile(filePath);
