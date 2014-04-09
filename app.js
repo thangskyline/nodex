@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -21,14 +20,14 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
 	app.use(express.errorHandler());
 }
 
 // app.get('/', routes.index);
 app.get('/', function(req, res) {
 
-	filePath = __dirname + '/public/index.html';
+	var filePath = __dirname + '/public/index.html';
 
 	if (path.existsSync(filePath)) {
 		res.sendfile(filePath);
@@ -40,7 +39,7 @@ app.get('/', function(req, res) {
 });
 app.get('/admin', function(req, res) {
 
-	filePath = __dirname + '/admin/index.html';
+	var filePath = __dirname + '/admin/index.html';
 
 	if (path.existsSync(filePath)) {
 		res.sendfile(filePath);
