@@ -17,7 +17,8 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'admin')));
 
 // development only
 if ('development' === app.get('env')) {
@@ -27,7 +28,7 @@ if ('development' === app.get('env')) {
 // app.get('/', routes.index);
 app.get('/', function(req, res) {
 
-	var filePath = __dirname + '/public/index.html';
+	var filePath = __dirname + '/admin/index.html';
 
 	if (path.existsSync(filePath)) {
 		res.sendfile(filePath);
