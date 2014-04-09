@@ -17,9 +17,9 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'admin')));
-
+var tempVar = path.join(__dirname, 'admin');
 // development only
 if ('development' === app.get('env')) {
 	app.use(express.errorHandler());
@@ -38,9 +38,9 @@ app.get('/', function(req, res) {
 		res.end();
 	}
 });
-app.get('/admin', function(req, res) {
+app.get('/public', function(req, res) {
 
-	var filePath = __dirname + '/admin/index.html';
+	var filePath = __dirname + '/public/index.html';
 
 	if (path.existsSync(filePath)) {
 		res.sendfile(filePath);
