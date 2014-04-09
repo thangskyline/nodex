@@ -17,8 +17,8 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'admin')));
+app.use(express.static(path.join(__dirname, 'admin1')));
+app.use(express.static(path.join(__dirname, 'admin2')));
 var tempVar = path.join(__dirname, 'admin');
 // development only
 if ('development' === app.get('env')) {
@@ -38,9 +38,21 @@ app.get('/', function(req, res) {
 		res.end();
 	}
 });
-app.get('/public', function(req, res) {
+app.get('/admin1', function(req, res) {
 
-	var filePath = __dirname + '/public/index.html';
+	var filePath = __dirname + '/admin1/index.html';
+
+	if (path.existsSync(filePath)) {
+		res.sendfile(filePath);
+	} else {
+		res.statusCode = 404;
+		res.write('404 sorry not found');
+		res.end();
+	}
+});
+app.get('/admin2', function(req, res) {
+
+	var filePath = __dirname + '/admin2/index.html';
 
 	if (path.existsSync(filePath)) {
 		res.sendfile(filePath);
